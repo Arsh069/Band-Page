@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
     box-sizing: border-box;
     font-family: Raleway;
@@ -39,13 +40,15 @@ html,body{
     border-bottom: 1px  rgba(255, 255, 255, 0.3);
 }
 
-.main-header{
-    background-color: rgba(0, 0, rgb(224, 224, 239), 0.6);
+.main-header {
+    background-color: #2D9CD8; /* Updated background color to a shade of blue */
     background-image: url("images/header.png");
     background-blend-mode: multiply;
     background-size: cover;
     padding: 30px;
-}
+    text-align: center;
+    color: #fff;
+  }
 
 .band-name{
     font-family:Boogaloo;
@@ -83,11 +86,11 @@ html,body{
     border-radius: 50%;
 }
 
-.main-footer{
-    background-color:rgba(32, 31, 31,0.9);
+.main-footer {
+    background-color: #1F4761; /* Darker shade of blue for the footer */
     color: white;
-    padding: .25em 0;
-}
+    padding: 0.25em 0;
+  }
 
 .main-footer-container{
     display: flex;
@@ -143,6 +146,7 @@ html,body{
     border-bottom: 1px solid black;
     padding: 1em;
     margin: 1em;
+    background: white;
 }
 
 .tour-row:last-child{
@@ -210,6 +214,7 @@ html,body{
 .shop-item-price{
     flex-grow: 1;
     color: #555;
+    font-weight: bold;
 }
 
 .shop-items{
@@ -307,10 +312,203 @@ html,body{
 .cart-total-price{
     color: #333;
     font-size: 1.1em;
+    font-weight: bold;
 }
 
 .btn-purchase{
     display: block;
     margin: 40px auto 80px auto;
     font-size: 1.75em;
+}
+
+
+
+
+
+.title-word {
+    animation: color-animation 4s linear infinite;
+  }
+  
+  .title-word-1 {
+    --color-1: #DF8453;
+    --color-2: #3D8DAE;
+    --color-3: #E4A9A8;
+  }
+  
+  .title-word-2 {
+    --color-1: #DBAD4A;
+    --color-2: #ACCFCB;
+    --color-3: #17494D;
+  }
+
+  @keyframes color-animation {
+    0%    {color: var(--color-1)}
+    32%   {color: var(--color-1)}
+    33%   {color: var(--color-2)}
+    65%   {color: var(--color-2)}
+    66%   {color: var(--color-3)}
+    99%   {color: var(--color-3)}
+    100%  {color: var(--color-1)}
+  }
+  
+  /* Here are just some visual styles. 🖌 */
+
+  .tour-row:hover {
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+  }
+  
+  .tour-row:hover::before, div:hover::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #FDA8CF;
+    border-radius: 75px;
+    z-index: -1;
+    animation: 1s clockwise infinite;
+  }
+  
+  .tour-row:hover:after {
+    background: #F3CE5E;
+    animation: 2s counterclockwise infinite;
+  }
+  
+  @keyframes clockwise {
+    0% {
+      top: -5px;
+      left: 0;
+    }
+    12% {
+      top: -2px;
+      left: 2px;
+    }
+    25% {
+      top: 0;
+      left: 5px;    
+    }
+    37% {
+      top: 2px;
+      left: 2px;
+    }
+    50% {
+      top: 5px;
+      left: 0;    
+    }
+    62% {
+      top: 2px;
+      left: -2px;
+    }
+    75% {
+      top: 0;
+      left: -5px;
+    }
+    87% {
+      top: -2px;
+      left: -2px;
+    }
+    100% {
+      top: -5px;
+      left: 0;    
+    }
+  }
+  
+  @keyframes counterclockwise {
+    0% {
+      top: -5px;
+      right: 0;
+    }
+    12% {
+      top: -2px;
+      right: 2px;
+    }
+    25% {
+      top: 0;
+      right: 5px;    
+    }
+    37% {
+      top: 2px;
+      right: 2px;
+    }
+    50% {
+      top: 5px;
+      right: 0;    
+    }
+    62% {
+      top: 2px;
+      right: -2px;
+    }
+    75% {
+      top: 0;
+      right: -5px;
+    }
+    87% {
+      top: -2px;
+      right: -2px;
+    }
+    100% {
+      top: -5px;
+      right: 0;    
+    }
+  }
+
+
+
+  
+  .glow-on-hover {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
